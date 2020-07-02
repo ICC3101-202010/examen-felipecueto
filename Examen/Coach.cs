@@ -33,11 +33,13 @@ namespace Examen
         }
         public void ChangePlayer(Player oldplayer)
         {
-            Player newplayer = new Player("nombreJugador",0,"Nacionalidad",0,0,0,0);
-
-            if (PlayerChanged != null)
+            Player newplayer = new Player("nombreJugador",0,"Nacionalidad",0,0,0,0); //El Entrenador debe elejir a quien entra a la cancha
+            if (!newplayer.Injured)
             {
-                PlayerChanged(this, new ChangePlayerEventArgs(){NewPlayer=newplayer,OldPlayer=oldplayer});
+                if (PlayerChanged != null)
+                {
+                    PlayerChanged(this, new ChangePlayerEventArgs() { NewPlayer = newplayer, OldPlayer = oldplayer });
+                }
             }
         }
 

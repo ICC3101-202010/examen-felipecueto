@@ -27,7 +27,7 @@ namespace Examen
                     {
                         count += 1;
                     }
-                    player.Injury += coach.OnPlayerInjury;
+                    player.Injury += coach.OnPlayerInjury; 
                 }
                 if (count != 0)
                 {
@@ -50,7 +50,7 @@ namespace Examen
                 this.players = players;
                 this.teamType = teamType;
                 this.nationality = nationality;
-                coach.Injury += doctor.OnPlayerInjury;
+                coach.Injury += doctor.OnPlayerInjury;  
             }  
         }
 

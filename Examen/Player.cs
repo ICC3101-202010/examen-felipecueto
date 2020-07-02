@@ -6,8 +6,9 @@ namespace Examen
         private int atackePoints;
         private int defensePoints;
         private int number;
-        private bool injured = false;
+        private bool injured = false; //Si el jugaro esta lessionado no puede jugar
 
+        //Evento por si se lessiona
         public delegate void SendingMessegeToCoachHandler(object source, InjuryEventArgs args);
         public event SendingMessegeToCoachHandler Injury;
 
