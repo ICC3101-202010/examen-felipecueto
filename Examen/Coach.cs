@@ -6,8 +6,8 @@ namespace Examen
         private int tactitcaPoints;
 
         //Evento para avisarle al doctor que se lessiono un jugador
-        public delegate void SendingMessegeToCoachHandler(object source, InjuryEventArgs args);
-        public event SendingMessegeToCoachHandler Injury;
+        public delegate void SendingMessegeToDoctorHandler(object source, InjuryEventArgs args);
+        public event SendingMessegeToDoctorHandler Injury;
 
         //Evento para cambiar jugador en el partido
         public delegate void SendingMessegeToMatchHandler(object source, ChangePlayerEventArgs args);

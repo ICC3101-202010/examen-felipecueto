@@ -14,19 +14,19 @@ namespace Examen
 
         public void OnPlayerInjury(Object sender, InjuryEventArgs args)
         {
-            if (evaluate(args.player))
+            if (Evaluate(args.player))
             {
-                cure(args.player);
+                Cure(args.player);
             }
         }
-        public bool evaluate(Player player)
+        public bool Evaluate(Player player)
         {
             bool needToCure = false;
             
             return needToCure;
         }
 
-        public void cure(Player player)
+        public void Cure(Player player)
         {
             player.Injured = false; 
         }

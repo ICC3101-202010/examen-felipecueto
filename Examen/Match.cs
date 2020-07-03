@@ -5,12 +5,12 @@ namespace Examen
     {
         private Team team1;
         private Team team2;
-        private TeamTypeEnumeration teamType;
+        private TeamTypeEnumeration matchType;
         private int durationTime;
         private int scoreTeam1;
         private int scoreTeam2;
 
-        public Match(Team team1, Team team2, TeamTypeEnumeration teamType, int durationTime)
+        public Match(Team team1, Team team2, TeamTypeEnumeration matchType, int durationTime)
         {
             if (team1.TeamType != team2.TeamType)
             {
@@ -18,7 +18,7 @@ namespace Examen
             }
             this.team1 = team1;
             this.team2 = team2;
-            this.teamType = teamType;
+            this.matchType = matchType;
             this.durationTime = durationTime;
             team1.Coach.PlayerChanged += OnChangePlayer;
             team2.Coach.PlayerChanged += OnChangePlayer;
@@ -26,7 +26,7 @@ namespace Examen
 
         public Team Team1 { get => team1; set => team1 = value; }
         public Team Team2 { get => team2; set => team2 = value; }
-        public TeamTypeEnumeration TeamType { get => teamType; set => teamType = value; } //Tipo de Partido
+        public TeamTypeEnumeration MatchType { get => matchType; set => matchType = value; } //Tipo de Partido
         public int DurationTime { get => durationTime; set => durationTime = value; } //Duracion del partido
         public int ScoreTeam1 { get => scoreTeam1; set => scoreTeam1 = value; }
         public int ScoreTeam2 { get => scoreTeam2; set => scoreTeam2 = value; }
