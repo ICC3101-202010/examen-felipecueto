@@ -12,7 +12,7 @@ namespace Examen
         private TeamTypeEnumeration teamType;
         private string nationality;
 
-        public Team( Coach coach, Doctor doctor,string name, TeamTypeEnumeration teamType,string nationality)
+        public Team(Coach coach, Doctor doctor,string name, TeamTypeEnumeration teamType,string nationality)
         {
                 this.name = name;
                 this.doctor = doctor;
@@ -41,6 +41,11 @@ namespace Examen
             return null;
         }
 
+        public Team GetTeam()
+        {
+            return this;
+        }
+
         public void addPlayer(Player newplayer)
         {
             if (players.Count > 15)
@@ -49,36 +54,39 @@ namespace Examen
             }
             else
             {
-                foreach (Player player in players)
+                if (players.Count > 0)
                 {
-                    if (player.Name == newplayer.Name)
+                    foreach (Player player in players)
                     {
-                        throw new System.ArgumentException("Ya existe este jugadro en este equipo", "");
-                    }
-
-                    bool notHavekeeper = true;
-
-                    if (players.Count == 14)
-                    {
-                        if (player is Goalkeeper)
+                        if (player.Name == newplayer.Name)
                         {
-                            notHavekeeper = false;
-                            
+                            throw new System.ArgumentException("Ya existe este jugadro en este equipo", "");
                         }
-                        if (notHavekeeper)
+                        bool notHavekeeper = true;
+
+                        if (players.Count == 14)
                         {
-                            throw new System.ArgumentException("Debes tener almenos 1 Arquero", "");
+                            if (player is Goalkeeper)
+                            {
+                                notHavekeeper = false;
+
+                            }
+                            if (notHavekeeper)
+                            {
+                                throw new System.ArgumentException("Debes tener almenos 1 Arquero", "");
+                            }
                         }
-                    }
-                    
-                }
-                if (TeamType == TeamTypeEnumeration.Nacionales)
-                {
-                    if (newplayer.Nationality != nationality)
-                    {
-                        throw new System.ArgumentException("No se aceptan jugadores extranjeros en un equipo nacional", "");
+
                     }
                 }
+                    if (TeamType == TeamTypeEnumeration.Nacionales)
+                    {
+                        if (newplayer.Nationality != nationality)
+                        {
+                            throw new System.ArgumentException("No se aceptan jugadores extranjeros en un equipo nacional", "");
+                        }
+                    }
+                
                 players.Add(newplayer);
                 newplayer.Injury += coach.OnPlayerInjury;
             }
